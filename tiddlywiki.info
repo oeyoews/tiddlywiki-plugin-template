@@ -1,0 +1,35 @@
+{
+  "themes": [
+    "tiddlywiki/vanilla"
+  ],
+  "plugins": [
+    "tiddlywiki/filesystem",
+    "tiddlywiki/tiddlyweb"
+  ],
+  "build": {
+    "index": [
+      "--verbose",
+      "--output",
+      ".tiddlywiki",
+      "--deletetiddlers",
+      "$:/StoryList",
+      "--render",
+      "$:/plugins/tiddlywiki/tiddlyweb/save/offline",
+      "offline.html",
+      "text/plain",
+      "--render",
+      "$:/core/save/offline-external-js",
+      "index.html",
+      "text/plain",
+      "--render",
+      "$:/core/templates/tiddlywiki5.js",
+      "[[tiddlywikicore-]addsuffix<version>addsuffix[.js]]",
+      "text/plain",
+      "--deletetiddlers",
+      "$:/StoryList"
+    ]
+  },
+  "config": {
+    "retain-original-tiddler-path": true
+  }
+}

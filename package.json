@@ -1,0 +1,9 @@
+{
+	"scripts": {
+		"start": "tiddlywiki --listen",
+		"build": "tiddlywiki --build"
+	},
+	"dependencies": {
+		"tiddlywiki": "^5.3.1"
+	}
+}

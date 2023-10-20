@@ -1,0 +1,3 @@
+list: $:/plugins/author/pluginname
+title: $:/StoryList
+type: text/vnd.tiddlywiki

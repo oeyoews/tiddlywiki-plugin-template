@@ -1,0 +1,5 @@
+title: $:/plugins/author/pluginname/readme
+
+!! foo readme
+
+<$foo />
