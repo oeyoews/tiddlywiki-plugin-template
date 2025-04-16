@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy TiddlyWiki to GitHub Pages
 
 on:
   push:
@@ -6,27 +6,21 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
   pages: write
+  id-token: write
+  contents: write
+
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   release-and-page:
     runs-on: ubuntu-latest
+    name: Publish
     steps:
-      - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
+      - uses: oeyoews/tiddlywiki-publish@main
         with:
-          bun-version: latest
-      - name: Install Dependency
-        run: bun install # --production
-
-      - name: Build Page
-        run: bun run build
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: |
-            ./.tiddlywiki
+          tiddlers-directory: .
+          version: "master"
